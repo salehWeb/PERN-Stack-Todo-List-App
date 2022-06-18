@@ -1,8 +1,9 @@
-import express, {Express, Request, Response} from 'express';
+import express, {Express} from 'express';
 import dotenv from "dotenv"
 import cors from "cors"
 import knex from './db/knex'
 import { Model } from 'objection'
+import todosRoute from './routes/todos'
 
 Model.knex(knex)
 dotenv.config()
@@ -18,12 +19,7 @@ const corsOptions = { origin: "*" }
 
 app.use(cors(corsOptions));
 
-
-app.get('/', (req: Request, res: Response) => {
-    res.send('Hello World!');
-    console.log('Hello World!');
-});
-
+app.use("/api/todos", todosRoute)
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
