@@ -1,15 +1,17 @@
 {
-  "name": "node-and-mysql",
+  "name": "node-and-postgres",
   "module": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "rollback": "knex --knexfile ./db/config.ts migrate:rollback",
-    "gitName": "git diff --name-only ./db/migrations/",
+    "rollback": "knex --knexfile ./db/config.ts migrate:rollback --env development",
+    "latest": "knex --knexfile ./db/config.ts migrate:latest --env development",
+    "up": "knex --knexfile ./db/config.ts migrate:up --env development",
+    "down": "knex --knexfile ./db/config.ts migrate:down --env development",
     "start": "nodemon --exec npx ts-node ./server.ts",
-    "make": "knex --knexfile ./db/config.ts migrate:make",
-    "latest": "knex --knexfile ./db/config.ts migrate:latest"
+    "list": "knex --knexfile ./db/config.ts migrate:list",
+    "make": "knex --knexfile ./db/config.ts migrate:make"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +21,7 @@
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/node": "^18.0.0",
+    "@types/pg": "^8.6.5",
     "@types/uuid": "^8.3.4",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
