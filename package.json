@@ -5,33 +5,28 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "rollback": "knex --knexfile ./db/config.ts migrate:rollback --env development",
-    "latest": "knex --knexfile ./db/config.ts migrate:latest --env development",
-    "up": "knex --knexfile ./db/config.ts migrate:up --env development",
-    "down": "knex --knexfile ./db/config.ts migrate:down --env development",
-    "start": "nodemon --exec npx ts-node ./server.ts",
-    "list": "knex --knexfile ./db/config.ts migrate:list",
-    "make": "knex --knexfile ./db/config.ts migrate:make"
+    "start": "nodemon --exec npx ts-node ./server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@tsconfig/node16": "^1.0.3",
+    "@types/bcryptjs": "^2.4.2",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.8",
     "@types/node": "^18.0.0",
     "@types/pg": "^8.6.5",
-    "@types/uuid": "^8.3.4",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "knex": "^2.1.0",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
     "nodemon": "^2.0.16",
-    "objection": "^3.0.1",
     "pg": "^8.7.3",
     "ts-node": "^10.8.1",
-    "typescript": "^4.7.3",
-    "uuid": "^8.3.2"
+    "typescript": "^4.7.3"
   }
 }

@@ -1,8 +1,12 @@
 import express, { IRouter } from 'express';
-import { createUser } from '../controllers/user';
+import { signUp, login, logout } from '../controllers/user';
 
 const router: IRouter = express.Router()
 
-router.post('/', createUser)
+router.post('/signup', signUp)
+
+router.post('/login', login)
+
+router.post('/logout', logout)
 
 export default router;
